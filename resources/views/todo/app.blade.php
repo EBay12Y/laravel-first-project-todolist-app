@@ -40,6 +40,11 @@
             <div class="col-md-8">
              <div class="card mb-3">
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -50,7 +55,7 @@
                         </div>
                     @endif
                     <!-- 02. Form input data -->
-                    <form id="todo-form" action="{{ url('/todo') }}" method="post">
+                    <form id="todo-form" action="{{ route('todo.post') }}" method="post">
                         @csrf
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" name="task" id="todo-input"

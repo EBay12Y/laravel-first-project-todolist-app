@@ -9,5 +9,5 @@ class ToDo extends Model
 {
     use HasFactory;
     protected $table = "todo";
-    protected $fillabel = ["task", "is_done"];
+    protected $fillable = ["task", "is_done"];
 }

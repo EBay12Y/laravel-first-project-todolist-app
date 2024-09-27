@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ToDo;
 
 use App\Http\Controllers\Controller;
+use App\Models\ToDo;
 use Illuminate\Http\Request;
 
 class ToDoController extends Controller
@@ -35,6 +36,13 @@ class ToDoController extends Controller
             'task.min' => 'Minimal isian untuk task adalah 3 karakter',
             'task.max' => 'Maksimal isian untuk task adalah 50 karakter',
         ]);
+
+        $data = [
+            'task' => $request->input('task')
+        ];
+
+        ToDo::create($data);
+        return redirect()->route('todo')->with('success', 'Berhasil simpan data');
     }
 
     /**
